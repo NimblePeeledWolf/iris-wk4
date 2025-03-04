@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iris-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iris-app
+  template:
+    metadata:
+      labels:
+        app: iris-app
+    spec:
+      containers:
+      - name: iris-app
+        image: betco2113/iris-hw:latest  # This should be the Docker image you pushed
+        ports:
+        - containerPort: 5000  # Port exposed inside the container
+---
